@@ -21,10 +21,10 @@ function add({ title, author, id }) {
 }
 
 function showItems() {
-    bookList.innerHTML = '';
-    book.forEach((book) => {
-      add(book);
-    });
+  bookList.innerHTML = '';
+  book.forEach((book) => {
+    add(book);
+  });
 }
 
 if (savedData) {
