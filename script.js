@@ -1,4 +1,4 @@
-const book = [];
+let book = [];
 
 function add(){
     const bookList = document.getElementById("bookList") ;
@@ -29,12 +29,13 @@ function add(){
 const showBook = (books) => {
   for(let i = 0; i < books.length; i += 1) {
     const book = books[i]
-    book.appendChild(showBook(book))
+    // book.appendChild(book(books))
+    console.log(book)
   }
 }
 
 if(localStorage.getItem('savedData')) {
-  book = JSON.parse(localStorage.getItem(savedData));
+  book = JSON.parse(localStorage.getItem('savedData'));
   showBook(book)
 }
 
