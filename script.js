@@ -1,3 +1,4 @@
+const book = [];
 
 function add(){
     const bookList = document.getElementById("bookList") ;
@@ -6,59 +7,40 @@ function add(){
     const li = document.createElement("li");
     const button = document.createElement("button");
     button.innerText = "Remove";
-    button.addEventListener('click',() => bookList.removeChild(li));
-   
+    button.addEventListener('click',() => bookList.removeChild(li));   
    
     
-li.appendChild(document.createTextNode(bookInput.value + ' '));
-li.appendChild(document.createElement('br'));
-li.appendChild(document.createTextNode(authorInput.value + ' '));
-li.appendChild(button);
-li.appendChild(document.createElement('hr'));
+  li.appendChild(document.createTextNode(bookInput.value + ' '));
+  li.appendChild(document.createElement('br'));
+  li.appendChild(document.createTextNode(authorInput.value + ' '));
+  li.appendChild(button);
+  li.appendChild(document.createElement('hr'));
 
-bookList.appendChild(li);
+  bookList.appendChild(li);
 
-}
-
-const form = document.querySelector('bookAndAuthor');
-const error = document.querySelector('#error');
-const bookName = document.querySelector('bookInput');
-const authorName = document.querySelector('authorInput');
-
-const inputKey = 'CONTACT';
-const inputDetails = localStorage.getItem(inputKey);
-
-if (inputDetails) {
-  const contact = JSON.parse(inputDetails);
-  bookName.value = contact.bookName;
-  authorName.value = contact.authorName;
-}
-
-form.addEventListener('click', (event) => {
-  if (bookName.value.trim() !== bookName.value.trim().toLowerCase()) {
-    error.style.opacity = 1;
-    error.textContent = 'Please, all Book names should be lowercase';
-    event.preventDefault();
-  } else if (authorName.value.trim() !== authorName.value.trim().toLowerCase()) {
-    error.style.opacity = 1;
-    error.textContent = 'Please, add only lower character for Authors';
-    event.preventDefault();
-  } else {
-    const contactObj = {
-      bookName: bookName.value,
-      authorName: authorName.value,
-    };
-    localStorage.setItem(inputKey, JSON.stringify(contactObj));
-    error.style.opacity = 0;
+  const bookObj = {
+    title: bookInput.value,
+    author: authorInput.value
   }
-});
-// The Node method :
-/* Methods used :     appendChild()    -                createElement()      -                              createTextNode()
-                   appends child to Node           creates element in document                             creates a Text Node */
+  book.unshift(bookObj)
+  localStorage.setItem('savedData', JSON.stringify(book));  
+}
 
+const showBook = (books) => {
+  for(let i = 0; i < books.length; i += 1) {
+    const book = books[i]
+    book.appendChild(showBook(book))
+  }
+}
 
+if(localStorage.getItem('savedData')) {
+  book = JSON.parse(localStorage.getItem(savedData));
+  showBook(book)
+}
 
-
-                   
-// The Array method :
-//  ???
+const reAdd = (bookObj) => {
+  bookObj = book.length + 1;
+  book.unshift(bookObj);
+  localStorage.setItem('savedData', JSON.stringify(book));
+  book.prepend(add(bookObj));
+}
