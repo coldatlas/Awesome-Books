@@ -8,7 +8,10 @@ function add({ title, author, id }) {
   button.innerText = 'Remove';
   button.addEventListener('click', () => {
     book = book.filter((item) => item.id !== id);
-    showItems();
+    bookList.innerHTML = '';
+    book.forEach((book) => {
+      add(book);
+    });
     localStorage.setItem('savedData', JSON.stringify(book));
   });
 
