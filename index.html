@@ -1,24 +1,20 @@
 <!DOCTYPE html>
 <head>
+    <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </head>
 <body>
     <main>
         <h1>Our Awesome Books</h1>
-        <p id="message"></p>
+        <p id="error"></p>
         <ul id="bookList">
 
-        </ul>
-      
+        </ul>      
         
-        <div>
-            <input type="text" id="bookInput"/>  
-        </div>
-        <br />
-        <div>
-            <input type="text" id="authorInput"/>  
-        </div>
-        <br />
+        <form id="bookAndAuthor">
+            <input type="text" id="bookInput" name="bookInput" /> 
+            <input type="text" id="authorInput" name="authorInput" />  
+        </form>
         <button onclick="add()"> Add Book </button>
     </main>
 </body>

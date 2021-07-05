@@ -1,0 +1,34 @@
+*  {
+  padding: 0;
+  margin: 0
+}
+
+li {
+  list-style: none;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+form #bookInput {
+  margin: 10px 0;
+}
+
+button {
+  display: block;
+  margin: 10px 0;
+  padding: 5px;
+}
+
+main {
+  margin: 20px;
+}
+
+#bookInput {
+  display: block;
+}
+
+li {
+  display: block;
+}
