@@ -2,19 +2,12 @@ const savedData = localStorage.getItem('savedData');
 let book = [];
 const bookList = document.getElementById('bookList');
 
-function showItems() {
-  bookList.innerHTML = '';
-  book.forEach(book => {
-    add(book);
-  });
-}
-
 function add({ title, author, id }) {
   const li = document.createElement('li');
   const button = document.createElement('button');
   button.innerText = 'Remove';
   button.addEventListener('click', () => {
-    book = book.filter(item => item.id !== id);
+    book = book.filter((item) => item.id !== id);
     showItems();
     localStorage.setItem('savedData', JSON.stringify(book));
   });
@@ -27,6 +20,13 @@ function add({ title, author, id }) {
   bookList.appendChild(li);
 }
 
+function showItems() {
+    bookList.innerHTML = '';
+    book.forEach((book) => {
+      add(book);
+    });
+}
+
 if (savedData) {
   book = JSON.parse(savedData);
   showItems();
@@ -37,9 +37,9 @@ form.addEventListener('submit', (event) => {
   event.preventDefault();
   const bookInput = document.getElementById('bookInput');
   const authorInput = document.getElementById('authorInput');
-  book.push( {
-      title: bookInput.value, author: authorInput.value, id: Math.floor(Math.random() * 1000)
-    });
+  book.push({
+    title: bookInput.value, author: authorInput.value, id: Math.floor(Math.random() * 1000),
+  });
   showItems();
   localStorage.setItem('savedData', JSON.stringify(book));
 });
