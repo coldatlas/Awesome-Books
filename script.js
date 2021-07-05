@@ -1,47 +1,44 @@
+const savedData = localStorage.getItem('savedData');
 let book = [];
+const bookList = document.getElementById("bookList") ;
 
-function add(){
-    const bookList = document.getElementById("bookList") ;
-    const bookInput = document.getElementById("bookInput");
-    const authorInput = document.getElementById("authorInput");
+function showItems() {
+  bookList.innerHTML = '';
+  book.forEach(book => {
+    add(book)
+  })
+}
+
+function add({title, author, id}){
     const li = document.createElement("li");
     const button = document.createElement("button");
     button.innerText = "Remove";
-    button.addEventListener('click',() => bookList.removeChild(li));   
+    button.addEventListener('click',() => {
+      book = book.filter(item => item.id !== id)
+      showItems()
+      localStorage.setItem('savedData', JSON.stringify(book))
+    });   
    
     
-  li.appendChild(document.createTextNode(bookInput.value + ' '));
+  li.appendChild(document.createTextNode(title + ' '));
   li.appendChild(document.createElement('br'));
-  li.appendChild(document.createTextNode(authorInput.value + ' '));
+  li.appendChild(document.createTextNode(author + ' '));
   li.appendChild(button);
   li.appendChild(document.createElement('hr'));
-
-  bookList.appendChild(li);
-
-  const bookObj = {
-    title: bookInput.value,
-    author: authorInput.value
-  }
-  book.unshift(bookObj)
-  localStorage.setItem('savedData', JSON.stringify(book));  
+  bookList.appendChild(li); 
 }
 
-const showBook = (books) => {
-  for(let i = 0; i < books.length; i += 1) {
-    const book = books[i]
-    // book.appendChild(book(books))
-    console.log(book)
-  }
+if(savedData) {
+  book = JSON.parse(savedData)
+  showItems();
 }
 
-if(localStorage.getItem('savedData')) {
-  book = JSON.parse(localStorage.getItem('savedData'));
-  showBook(book)
-}
-
-const reAdd = (bookObj) => {
-  bookObj = book.length + 1;
-  book.unshift(bookObj);
-  localStorage.setItem('savedData', JSON.stringify(book));
-  book.prepend(add(bookObj));
-}
+const form = document.getElementById('bookAndAuthor');
+form.addEventListener('submit', (event) => {
+  event.preventDefault()
+  const bookInput = document.getElementById("bookInput");
+  const authorInput = document.getElementById("authorInput");
+  book.push({title:bookInput.value, author:authorInput.value, id: Math.floor(Math.random() * 1000)});
+  showItems()
+  localStorage.setItem('savedData', JSON.stringify(book))
+})
