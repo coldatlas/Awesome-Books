@@ -45,4 +45,6 @@ form.addEventListener('submit', (event) => {
   });
   showItems();
   localStorage.setItem('savedData', JSON.stringify(book));
+  bookInput.value = '';
+  authorInput.value = '';
 });
