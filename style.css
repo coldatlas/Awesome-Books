@@ -28,4 +28,5 @@ main {
 li {
   display: block;
   list-style: none;
+  font-family: 'Courier New', Courier, monospace;
 }
