@@ -20,7 +20,7 @@ class BookLibrary {
     button.addEventListener('click', () => {
       this.book = this.book.filter((item) => item.id !== id);
       bookList.removeChild(li);
-      localStorage.setItem('savedData', JSON.stringify(library.book));
+      localStorage.setItem('savedData', JSON.stringify(this.book));
     });
 
     li.appendChild(document.createTextNode(title));
