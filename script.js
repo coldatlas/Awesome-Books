@@ -2,22 +2,23 @@ const savedData = localStorage.getItem('savedData');
 const bookList = document.getElementById('bookList');
 
 class BookLibrary {
-  constructor () {
+  constructor() {
     this.book = [];
   }
+
   showItems() {
     bookList.innerHTML = '';
     this.book.forEach((book) => {
       this.add(book);
     });
   }
+
   add({ title, author, id }) {
     const li = document.createElement('li');
     const button = document.createElement('button');
     button.innerText = 'Remove';
     button.addEventListener('click', () => {
       this.book = this.book.filter((item) => item.id !== id);
-      console.log(this.book);
       bookList.removeChild(li);
       localStorage.setItem('savedData', JSON.stringify(library.book));
     });
@@ -45,8 +46,8 @@ form.addEventListener('submit', (event) => {
   library.book.push({
     title: bookInput.value, author: authorInput.value, id: Math.floor(Math.random() * 1000),
   });
-library.showItems();
-localStorage.setItem('savedData', JSON.stringify(library.book));
-bookInput.value = '';
-authorInput.value = '';
+  library.showItems();
+  localStorage.setItem('savedData', JSON.stringify(library.book));
+  bookInput.value = '';
+  authorInput.value = '';
 });
