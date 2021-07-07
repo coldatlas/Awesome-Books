@@ -1,38 +1,41 @@
 const savedData = localStorage.getItem('savedData');
-let book = [];
 const bookList = document.getElementById('bookList');
 
-function add({ title, author, id }) {
-  const li = document.createElement('li');
-  const button = document.createElement('button');
-  button.innerText = 'Remove';
-  button.addEventListener('click', () => {
-    book = book.filter((item) => item.id !== id);
+class BookLibrary {
+  constructor() {
+    this.book = [];
+  }
+
+  showItems() {
     bookList.innerHTML = '';
-    book.forEach((book) => {
-      add(book);
+    this.book.forEach((book) => {
+      this.add(book);
     });
-    localStorage.setItem('savedData', JSON.stringify(book));
-  });
+  }
 
-  li.appendChild(document.createTextNode(title));
-  li.appendChild(document.createElement('br'));
-  li.appendChild(document.createTextNode(author));
-  li.appendChild(button);
-  li.appendChild(document.createElement('hr'));
-  bookList.appendChild(li);
+  add({ title, author, id }) {
+    const li = document.createElement('li');
+    const button = document.createElement('button');
+    button.innerText = 'Remove';
+    button.addEventListener('click', () => {
+      this.book = this.book.filter((item) => item.id !== id);
+      bookList.removeChild(li);
+      localStorage.setItem('savedData', JSON.stringify(this.book));
+    });
+
+    li.appendChild(document.createTextNode(title));
+    li.appendChild(document.createElement('br'));
+    li.appendChild(document.createTextNode(author));
+    li.appendChild(button);
+    li.appendChild(document.createElement('hr'));
+    bookList.appendChild(li);
+  }
 }
 
-function showItems() {
-  bookList.innerHTML = '';
-  book.forEach((book) => {
-    add(book);
-  });
-}
-
+const library = new BookLibrary();
 if (savedData) {
-  book = JSON.parse(savedData);
-  showItems();
+  library.book = JSON.parse(savedData);
+  library.showItems();
 }
 
 const form = document.getElementById('bookAndAuthor');
@@ -40,9 +43,11 @@ form.addEventListener('submit', (event) => {
   event.preventDefault();
   const bookInput = document.getElementById('bookInput');
   const authorInput = document.getElementById('authorInput');
-  book.push({
+  library.book.push({
     title: bookInput.value, author: authorInput.value, id: Math.floor(Math.random() * 1000),
   });
-  showItems();
-  localStorage.setItem('savedData', JSON.stringify(book));
+  library.showItems();
+  localStorage.setItem('savedData', JSON.stringify(library.book));
+  bookInput.value = '';
+  authorInput.value = '';
 });
