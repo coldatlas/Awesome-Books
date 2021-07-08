@@ -15,7 +15,6 @@ class BookLibrary {
 
   add({ title, author, id }) {
     const li = document.createElement('li');
-    const btnDiv = document.createAttribute('div');
     const button = document.createElement('button');
     button.innerText = 'Remove';
     button.addEventListener('click', () => {
@@ -33,7 +32,6 @@ class BookLibrary {
     li.appendChild(document.createTextNode(author));
     li.appendChild(button);
     bookList.appendChild(li);
-    
   }
 }
 
