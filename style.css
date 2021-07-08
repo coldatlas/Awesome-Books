@@ -1,31 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&display=swap');
+
 * {
   padding: 0;
   margin: 0;
+  font-family: 'Comic Neue', cursive;
 }
 
-h1 {
-  margin-bottom: 20px;
-}
-
-#bookInput {
-  display: block;
-}
-
-form #bookInput {
-  margin: 10px 0;
-}
-
-button {
-  display: block;
-  margin: 10px 0;
-  padding: 5px;
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 20px;
 }
 
 main {
   margin: 20px;
 }
 
+ul {
+  padding: 0;
+}
+
+ul:empty {
+  display: none;
+}
+
 li {
   display: block;
   list-style: none;
+  padding-left: 8px;
+}
+
+button {
+  background-color: #4169e1;
+  color: #fff;
+  font-size: 15px;
+  padding: 8px;
+}
+
+li button {
+  float: right;
+}
+
+li:nth-child(odd) {
+  background-color: lightgrey;
+}
+
+#bookList {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  border: 1px solid rgb(0, 0, 0);
+  border-width: 8px;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+#bookList:empty {
+  display: none;
+}
+
+#bookList li:empty {
+  display: none;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#addbutton {
+  width: 60px;
+  align-self: flex-end;
+}
+
+.divider {
+  background-color: #808080;
+  height: 1px;
+  margin: 0 auto;
+  width: 20%;
+}
+
+input {
+  display: block;
+  min-width: 300px;
+  padding: 12px;
+  border: 2px solid rgb(0, 0, 0);
+  border-width: 8px;
+  margin: auto;
+  margin-bottom: 5px;
+}
+
+@media only screen and (min-width: 768px) {
+  .justify-right {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 342px;
+  }
 }
