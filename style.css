@@ -3,6 +3,7 @@
 * {
   padding: 0;
   margin: 0;
+  font-family: 'Comic Neue', cursive;
 }
 
 body {
@@ -14,10 +15,22 @@ main {
   margin: 20px;
 }
 
+ul {
+  padding: 0;
+}
+
+ul:empty {
+  display: none;
+}
+
 li {
   display: block;
   list-style: none;
-  margin: 12px;
+  padding-left: 8px;
+}
+
+li button {
+  float: right;
 }
 
 li:nth-child(odd) {
@@ -28,7 +41,18 @@ li:nth-child(odd) {
   display: flex;
   flex-direction: column;
   gap: 3px;
-  border: 1px solid;
+  border: 1px solid rgb(0, 0, 0);
+  border-width: 8px;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+#bookList:empty {
+  display: none;
+}
+
+#bookList li:empty {
+  display: none;
 }
 
 button {
@@ -41,10 +65,13 @@ button {
 .form-container {
   display: flex;
   flex-direction: column;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-#bookAndAuthor {
-  align-items: center;
+#addbutton {
+  width: 60px;
+  align-self: flex-end;
 }
 
 .divider {
@@ -56,10 +83,13 @@ button {
 
 input {
   display: block;
-  width: 60%;
+  min-width: 300px;
   padding: 12px;
   margin: 10px;
-  border: 1px solid;
+  border: 2px solid rgb(0, 0, 0);
+  border-width: 8px;
+  margin: auto;
+  margin-bottom: 5px;
 }
 
 @media only screen and (min-width: 768px){
