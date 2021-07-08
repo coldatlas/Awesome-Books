@@ -13,6 +13,7 @@ class BookLibrary {
   }
   add({ title, author, id }) {
     const li = document.createElement('li');
+    const btnDiv = document.createAttribute('div');
     const button = document.createElement('button');
     button.innerText = 'Remove';
     button.addEventListener('click', () => {
@@ -23,7 +24,9 @@ class BookLibrary {
     });
   
     li.appendChild(document.createTextNode(title));
-    li.appendChild(document.createElement('br'));
+    li.appendChild(document.createTextNode(' '));
+    li.appendChild(document.createTextNode('by'));
+    li.appendChild(document.createTextNode(' '));
     li.appendChild(document.createTextNode(author));
     li.appendChild(button);
     li.appendChild(document.createElement('hr'));
@@ -47,4 +50,6 @@ form.addEventListener('submit', (event) => {
     });
   library.showItems();
   localStorage.setItem('savedData', JSON.stringify(library.book));
+  bookInput.value = '';
+  authorInput.value = '';
 });
