@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 const savedData = localStorage.getItem('savedData');
 const bookList = document.getElementById('bookList');
 
@@ -54,3 +56,29 @@ form.addEventListener('submit', (event) => {
   bookInput.value = '';
   authorInput.value = '';
 });
+
+window.addEventListener('load', () => {
+  // eslint-disable-next-line no-undef
+  const { DateTime } = luxon;
+  const now = DateTime.now();
+  document.getElementById('date').innerText = now.toLocaleString(DateTime.DATETIME_MED);
+  library.showItems();
+});
+
+function listFun() {
+  document.getElementById('bookList').style.display = 'block';
+  document.getElementById('add_new').style.display = 'none';
+  document.getElementById('contact').style.display = 'none';
+}
+
+function addFun() {
+  document.getElementById('bookList').style.display = 'none';
+  document.getElementById('add_new').style.display = 'block';
+  document.getElementById('contact').style.display = 'none';
+}
+
+function contactFun() {
+  document.getElementById('bookList').style.display = 'none';
+  document.getElementById('add_new').style.display = 'none';
+  document.getElementById('contact').style.display = 'block';
+}

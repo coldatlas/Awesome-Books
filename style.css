@@ -15,6 +15,20 @@ main {
   margin: 20px;
 }
 
+nav {
+  border: 1px solid #808880;
+}
+
+.nav-link {
+  color: red;
+}
+
+.date-container {
+  color: #4169e1;
+  display: flex;
+  justify-content: flex-end;
+}
+
 ul {
   padding: 0;
 }
@@ -27,6 +41,7 @@ li {
   display: block;
   list-style: none;
   padding-left: 8px;
+  min-height: 45px;
 }
 
 button {
@@ -56,6 +71,10 @@ li:nth-child(odd) {
 
 #bookList:empty {
   display: none;
+}
+
+.contact li {
+  margin: 9px;
 }
 
 #bookList li:empty {
@@ -89,6 +108,22 @@ input {
   border-width: 8px;
   margin: auto;
   margin-bottom: 5px;
+}
+
+#contact {
+  margin-bottom: 8rem;
+}
+
+.contact li a {
+  text-decoration: none;
+}
+
+footer {
+  background-color: #4169e1;
+  color: #fff;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
 }
 
 @media only screen and (min-width: 768px) {
