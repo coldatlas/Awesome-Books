@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 const savedData = localStorage.getItem('savedData');
 const bookList = document.getElementById('bookList');
 
@@ -60,7 +62,6 @@ window.addEventListener('load', () => {
   const { DateTime } = luxon;
   const now = DateTime.now();
   document.getElementById('date').innerText = now.toLocaleString(DateTime.DATETIME_MED);
-
   library.showItems();
 });
 
