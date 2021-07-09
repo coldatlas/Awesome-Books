@@ -1,7 +1,3 @@
-/* exported contactFun */
-/* exported addFun */
-/* exported listFun */
-
 const savedData = localStorage.getItem('savedData');
 const bookList = document.getElementById('bookList');
 
@@ -68,24 +64,20 @@ window.addEventListener('load', () => {
   library.showItems();
 });
 
-const one = document.getElementById('bookList');
-const two = document.getElementById('add_new');
-const three = document.getElementById('contact');
-
 function listFun() {
-  one.style.display = 'block';
-  two.style.display = 'none';
-  three.style.display = 'none';
+  document.getElementById('bookList') = 'block';
+  document.getElementById('add_new') = 'none';
+  document.getElementById('contact') = 'none';
 }
 
 function addFun() {
-  one.style.display = 'none';
-  two.style.display = 'block';
-  three.style.display = 'none';
+  document.getElementById('bookList') = 'none';
+  document.getElementById('add_new') = 'block';
+  document.getElementById('contact') = 'none';
 }
 
 function contactFun() {
-  one.style.display = 'none';
-  two.style.display = 'none';
-  three.style.display = 'block';
+  document.getElementById('bookList') = 'none';
+  document.getElementById('add_new') = 'none';
+  document.getElementById('contact') = 'block';
 }
