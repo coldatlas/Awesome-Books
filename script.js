@@ -1,3 +1,7 @@
+// exported contactFun()
+// exported addFun()
+// exported listFun()
+
 const savedData = localStorage.getItem('savedData');
 const bookList = document.getElementById('bookList');
 
@@ -64,9 +68,9 @@ window.addEventListener('load', () => {
   library.showItems();
 });
 
-let one = document.getElementById("bookList");
-let two = document.getElementById("add_new");
-let three = document.getElementById("contact");
+const one = document.getElementById('bookList');
+const two = document.getElementById('add_new');
+const three = document.getElementById('contact');
 
 function listFun() {
   one.style.display = 'block';
