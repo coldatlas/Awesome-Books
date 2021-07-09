@@ -65,9 +65,9 @@ window.addEventListener('load', () => {
 });
 
 function listFun() {
-  document.getElementById('bookList') = 'block';
-  document.getElementById('add_new') = 'none';
-  document.getElementById('contact') = 'none';
+  document.getElementById('bookList').style.display = 'block';
+  document.getElementById('add_new').style.display = 'none';
+  document.getElementById('contact').style.display = 'none';
 }
 
 function addFun() {
