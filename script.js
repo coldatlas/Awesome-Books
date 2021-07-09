@@ -71,13 +71,13 @@ function listFun() {
 }
 
 function addFun() {
-  document.getElementById('bookList') = 'none';
-  document.getElementById('add_new') = 'block';
-  document.getElementById('contact') = 'none';
+  document.getElementById('bookList').style.display = 'none';
+  document.getElementById('add_new').style.display = 'block';
+  document.getElementById('contact').style.display = 'none';
 }
 
 function contactFun() {
-  document.getElementById('bookList') = 'none';
-  document.getElementById('add_new') = 'none';
-  document.getElementById('contact') = 'block';
+  document.getElementById('bookList').style.display = 'none';
+  document.getElementById('add_new').style.display = 'none';
+  document.getElementById('contact').style.display = 'block';
 }
