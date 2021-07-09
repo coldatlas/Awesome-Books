@@ -106,6 +106,9 @@ input {
   margin-bottom: 5px;
 }
 
+#contact {
+  margin-bottom: 8rem;
+}
 .contact li {
   margin: 9px;
 }
@@ -117,6 +120,9 @@ input {
 footer {
   background-color: #4169e1;
   color: #fff;
+  bottom: 0px;
+  position: fixed;
+  width: 100%;
 }
 
 @media only screen and (min-width: 768px) {
