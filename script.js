@@ -54,3 +54,12 @@ form.addEventListener('submit', (event) => {
   bookInput.value = '';
   authorInput.value = '';
 });
+
+window.addEventListener('load', () => {
+  // eslint-disable-next-line no-undef
+  const { DateTime } = luxon;
+  const now = DateTime.now();
+  document.getElementById('date').innerText = now.toLocaleString(DateTime.DATETIME_MED);
+
+  library.showItems();
+});
