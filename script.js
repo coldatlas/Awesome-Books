@@ -1,6 +1,6 @@
-// exported contactFun()
-// exported addFun()
-// exported listFun()
+/* exported contactFun */
+/* exported addFun */
+/* exported listFun */
 
 const savedData = localStorage.getItem('savedData');
 const bookList = document.getElementById('bookList');
