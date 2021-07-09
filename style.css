@@ -73,6 +73,10 @@ li:nth-child(odd) {
   display: none;
 }
 
+.contact li {
+  margin: 9px;
+}
+
 #bookList li:empty {
   display: none;
 }
@@ -109,9 +113,6 @@ input {
 #contact {
   margin-bottom: 8rem;
 }
-.contact li {
-  margin: 9px;
-}
 
 .contact li a {
   text-decoration: none;
@@ -120,7 +121,7 @@ input {
 footer {
   background-color: #4169e1;
   color: #fff;
-  bottom: 0px;
+  bottom: 0;
   position: fixed;
   width: 100%;
 }
