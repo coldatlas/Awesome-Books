@@ -63,3 +63,25 @@ window.addEventListener('load', () => {
 
   library.showItems();
 });
+
+var one = document.getElementById("bookList");
+var two = document.getElementById("add_new");
+var three = document.getElementById("contact");
+
+function listFun() {
+  one.style.display = "block";
+  two.style.display = "none";
+  three.style.display = "none";
+}
+
+function addFun() {
+  one.style.display = "none";
+  two.style.display = "block";
+  three.style.display = "none";
+}
+
+function contactFun() {
+  one.style.display = "none";
+  two.style.display = "none";
+  three.style.display = "block";
+}

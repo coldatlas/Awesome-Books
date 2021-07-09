@@ -41,6 +41,7 @@ li {
   display: block;
   list-style: none;
   padding-left: 8px;
+  min-height: 45px;
 }
 
 button {
